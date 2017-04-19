@@ -15,6 +15,20 @@ module.exports = function(Coffeshop) {
     }
     cb(null, response);
   };
+
+  Coffeshop.getName = function(shopId, cb) {
+    Coffeshop.findById(shopId, function(err, instance) {
+      var reponse;
+      if (instance) {
+        reponse = 'Name of coffe shop is: ' + instance.name;
+        cb(null, reponse);
+      } else {
+        cb({message: 'There is no record with an id: ' + shopId + ' in our DB'});
+      }
+      console.log(reponse);
+    });
+  };
+
   Coffeshop.remoteMethod(
     'status', {
       http: {
@@ -26,5 +40,26 @@ module.exports = function(Coffeshop) {
         type: 'string',
       },
     }
+  );
+
+  Coffeshop.remoteMethod(
+      'getName', {
+        http: {
+          path: '/getname',
+          verb: 'get',
+          errorStatus: 400,
+        },
+        accepts: {
+          arg: 'id',
+          type: 'number',
+          http: {
+            source: 'query',
+          },
+        },
+        returns: {
+          arg: 'name',
+          type: 'string',
+        },
+      }
   );
 };
