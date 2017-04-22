@@ -12,5 +12,15 @@
     "name": "mysqlDs",
     "user": "root",
     "connector": "mysql"
+  },
+  "mongoDs": {
+    "host": "",
+    "port": 0,
+    "url": "mongodb://loopback:testPassword@ds045521.mlab.com:45521/testing123",
+    "database": "",
+    "password": "",
+    "name": "mongoDs",
+    "user": "",
+    "connector": "mongodb"
   }
 }
