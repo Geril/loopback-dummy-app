@@ -25,7 +25,7 @@
     "reviewer": {
       "type": "belongsTo",
       "model": "Reviewer",
-      "foreignKey": "publishedId"
+      "foreignKey": "publisherId"
     }
   },
   "acls": [],
