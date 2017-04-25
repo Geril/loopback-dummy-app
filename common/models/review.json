@@ -16,7 +16,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "coffeShop": {
+      "type": "belongsTo",
+      "model": "CoffeShop",
+      "foreignKey": ""
+    },
+    "reviewer": {
+      "type": "belongsTo",
+      "model": "Reviewer",
+      "foreignKey": "publishedId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
